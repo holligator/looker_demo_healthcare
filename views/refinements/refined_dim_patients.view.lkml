@@ -6,6 +6,7 @@ view: +dim_patients {
   }
 
   measure: total_age {
+    label: "Total Patient Age"
     type: sum
     sql: ${age} ;;
   }
