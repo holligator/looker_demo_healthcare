@@ -36,6 +36,7 @@ view: +fct_patient_conditions {
   }
 
   dimension: patient_address {
+    group_label: "Address"
   }
 
   dimension: patient_age_at_death {
@@ -64,12 +65,14 @@ view: +fct_patient_conditions {
   }
 
   dimension: patient_city {
+    group_label: "Address"
   }
 
   dimension: patient_conditions_key {
   }
 
   dimension: patient_country {
+    group_label: "Address"
   }
 
   dimension_group: patient_deceased {
@@ -97,10 +100,11 @@ view: +fct_patient_conditions {
   }
 
   dimension: patient_postal_code {
+    group_label: "Address"
   }
 
   dimension: patient_state {
-    label: "Patient State"
+    group_label: "Address"
   }
 
   measure: count {

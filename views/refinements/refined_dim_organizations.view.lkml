@@ -30,9 +30,3 @@ view: +dim_organizations {
     label: "Count of Organizations"
   }
 }
-
-  view: +dim_organizations__organization_address {
-
-    dimension: dim_organizations__organization_address {
-  }
-}
