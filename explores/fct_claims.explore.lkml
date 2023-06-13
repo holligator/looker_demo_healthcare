@@ -5,7 +5,7 @@ include: "/views/refinements/refined_fct_claims.view.lkml"
 explore: fct_claims {
   group_label: "3) Demo Datasets"
   label: "Healthcare - Claims"
-  view_label: "Hospital Events"
+  view_label: "Claims"
 
   join: dim_patients {
     view_label: "Patients"
@@ -15,7 +15,7 @@ explore: fct_claims {
   }
 
   join: dim_organizations {
-    view_label: "Patients"
+    view_label: "Organizations"
     type: left_outer
     relationship: many_to_one
     sql_on: ${fct_claims.organization_id} = ${dim_organizations.organization_id} ;;

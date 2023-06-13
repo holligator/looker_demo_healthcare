@@ -15,7 +15,7 @@ explore: fct_hospital_events {
   }
 
   join: dim_organizations {
-    view_label: "Patients"
+    view_label: "Organizations"
     type: left_outer
     relationship: many_to_one
     sql_on: ${fct_hospital_events.organization_id} = ${dim_organizations.organization_id} ;;
