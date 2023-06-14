@@ -2,6 +2,11 @@ include: "/views/raw/fct_claims.view.lkml"
 
 view: +fct_claims {
 
+  dimension: claim_id {
+    primary_key: yes
+    group_label: "IDs"
+  }
+
   dimension: billable_period_duration_minutes {
     hidden: yes
   }
@@ -38,10 +43,6 @@ view: +fct_claims {
       quarter,
       year
     ]
-  }
-
-  dimension: claim_id {
-    group_label: "IDs"
   }
 
   dimension: claim_status {
