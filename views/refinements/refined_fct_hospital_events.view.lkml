@@ -52,6 +52,18 @@ view: +fct_hospital_events {
     ]
   }
 
+  dimension_group: of_hospital_encounter {
+    group_label: "Duration of Encounter"
+    type: duration
+    sql_start: ${encounter_started_date} ;;
+    sql_end: ${encounter_ended_date} ;;
+    intervals: [
+      day,
+      week,
+      month
+    ]
+  }
+
   dimension: organization_id {
     group_label: "IDs"
   }
@@ -146,5 +158,12 @@ view: +fct_hospital_events {
   measure: count {
     hidden: yes
     label: "Count of Hospital Events"
+  }
+
+  measure: average_length_of_stay {
+    label: "Average Length of Stay (Days)"
+    type: average
+    sql: ${encounter_duration_minutes} / 1440 ;;
+    value_format_name: decimal_2
   }
 }
