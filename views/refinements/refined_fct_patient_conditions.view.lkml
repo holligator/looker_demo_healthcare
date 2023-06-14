@@ -2,6 +2,10 @@ include: "/views/raw/fct_patient_conditions.view.lkml"
 
 view: +fct_patient_conditions {
 
+  dimension: patient_conditions_key {
+    primary_key: yes
+  }
+
   dimension_group: condition_abatement {
     timeframes: [
       raw,
@@ -66,9 +70,6 @@ view: +fct_patient_conditions {
 
   dimension: patient_city {
     group_label: "Address"
-  }
-
-  dimension: patient_conditions_key {
   }
 
   dimension: patient_country {

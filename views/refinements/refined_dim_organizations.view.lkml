@@ -2,6 +2,10 @@ include: "/views/raw/dim_organizations.view.lkml"
 
 view: +dim_organizations {
 
+  dimension: organization_id {
+    primary_key: yes
+  }
+
   dimension: organization_address {
   }
 
@@ -9,9 +13,6 @@ view: +dim_organizations {
   }
 
   dimension: organization_country {
-  }
-
-  dimension: organization_id {
   }
 
   dimension: organization_name {

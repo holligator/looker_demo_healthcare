@@ -2,6 +2,10 @@ include: "/views/raw/fct_hospital_events.view.lkml"
 
 view: +fct_hospital_events {
 
+  dimension: hospital_event_sk {
+    primary_key: yes
+  }
+
   dimension: condition_id {
     group_label: "IDs"
   }
@@ -46,9 +50,6 @@ view: +fct_hospital_events {
       quarter,
       year
     ]
-  }
-
-  dimension: hospital_event_sk {
   }
 
   dimension: organization_id {

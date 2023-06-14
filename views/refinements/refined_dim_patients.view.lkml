@@ -2,6 +2,10 @@ include: "/views/raw/dim_patients.view.lkml"
 
 view: +dim_patients {
 
+  dimension: patient_id {
+    primary_key: yes
+  }
+
   dimension: age {
   }
 
@@ -24,6 +28,8 @@ view: +dim_patients {
       date,
       week,
       month,
+      month_name,
+      month_num,
       quarter,
       year
     ]
@@ -37,6 +43,8 @@ view: +dim_patients {
       date,
       week,
       month,
+      month_name,
+      month_num,
       quarter,
       year
     ]
@@ -52,12 +60,15 @@ view: +dim_patients {
       date,
       week,
       month,
+      month_name,
+      month_num,
       quarter,
       year
     ]
   }
 
   dimension: patient_address {
+    group_label: "Address Detail"
   }
 
   dimension_group: patient_birth {
@@ -66,6 +77,8 @@ view: +dim_patients {
       date,
       week,
       month,
+      month_name,
+      month_num,
       quarter,
       year
     ]
@@ -73,9 +86,11 @@ view: +dim_patients {
   }
 
   dimension: patient_city {
+    group_label: "Address Detail"
   }
 
   dimension: patient_country {
+    group_label: "Address Detail"
   }
 
   dimension_group: patient_deceased {
@@ -85,6 +100,8 @@ view: +dim_patients {
       date,
       week,
       month,
+      month_name,
+      month_num,
       quarter,
       year
     ]
@@ -96,16 +113,15 @@ view: +dim_patients {
   dimension: patient_gender {
   }
 
-  dimension: patient_id {
-  }
-
   dimension: patient_last_name {
   }
 
   dimension: patient_postal_code {
+    group_label: "Address Detail"
   }
 
   dimension: patient_state {
+    group_label: "Address Detail"
   }
 
   dimension: total_conditions_on_first_visit {
@@ -120,6 +136,12 @@ view: +dim_patients {
   measure: count {
     label: "Count of Patients"
     drill_fields: [patient_set*]
+  }
+
+  measure: total_conditions_on_first_visit_sum {
+    label: "Total Conditions on First Visit"
+    type: sum
+    sql: ${total_conditions_on_first_visit} ;;
   }
 
   set: patient_set {
