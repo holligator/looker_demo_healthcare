@@ -100,7 +100,7 @@ view: +fct_hospital_events {
     sql: date_diff(${dim_patients.patient_deceased_date}, ${procedure_ended_date}, day) <= 14 ;;
   }
 
-  measure: count_of_patients_who_died_14_days_after_procedure{
+  measure: count_of_patients_who_died_14_days_after_procedure {
     description: "The number of patients who died 14 days after after a procedure had taken place."
     type: count
     filters: [has_been_14_days_since_last_procedure: "Yes"]
@@ -131,7 +131,7 @@ view: +fct_hospital_events {
     description: "The percentage of patients who die as a result of a specific condition or treatment."
     type: number
     label: "Mortality Rate"
-    sql: ${count_of_patients_who_died_14_days_after_procedure}/NULLIF(${count_of_patients_who_had_procedures},0) ;;
+    sql: ${count_of_patients_who_died_14_days_after_procedure} / NULLIF(${count_of_patients_who_had_procedures}, 0) ;;
     value_format_name: percent_1
   }
 
@@ -139,7 +139,7 @@ view: +fct_hospital_events {
     description: "The percentage of success for each procedure."
     type: number
     label: "Success Rate"
-    sql: 1 - (${count_of_patients_who_died_14_days_after_procedure}/NULLIF(${count_of_procedures},0)) ;;
+    sql: 1 - (${count_of_patients_who_died_14_days_after_procedure} / NULLIF(${count_of_procedures}, 0)) ;;
     value_format_name: percent_1
   }
 
