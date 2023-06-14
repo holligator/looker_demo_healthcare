@@ -130,7 +130,7 @@ view: +fct_hospital_events {
   measure: mortality_rate {
     description: "The percentage of patients who die as a result of a specific condition or treatment."
     type: number
-    label: "Mortality Rate"
+    label: "Mortality Rate (%)"
     sql: ${count_of_patients_who_died_14_days_after_procedure} / NULLIF(${count_of_patients_who_had_procedures}, 0) ;;
     value_format_name: percent_1
   }
@@ -138,7 +138,7 @@ view: +fct_hospital_events {
   measure: success_rate {
     description: "The percentage of success for each procedure."
     type: number
-    label: "Success Rate"
+    label: "Success Rate (%)"
     sql: 1 - (${count_of_patients_who_died_14_days_after_procedure} / NULLIF(${count_of_procedures}, 0)) ;;
     value_format_name: percent_1
   }
