@@ -81,6 +81,11 @@ view: fct_claims {
     sql: ${TABLE}.condition_id ;;
   }
 
+  dimension: condition_type {
+    type: string
+    sql: ${TABLE}.condition_type ;;
+  }
+
   dimension: encounter_id {
     type: string
     sql: ${TABLE}.encounter_id ;;
@@ -99,6 +104,11 @@ view: fct_claims {
   dimension: patient_id {
     type: string
     sql: ${TABLE}.patient_id ;;
+  }
+
+  dimension: procedure_code {
+    type: string
+    sql: ${TABLE}.procedure_code ;;
   }
 
   dimension: procedure_id {
