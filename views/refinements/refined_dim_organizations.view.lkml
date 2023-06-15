@@ -19,6 +19,7 @@ view: +dim_organizations {
   }
 
   dimension: organization_postal_code {
+    map_layer_name: us_zipcode_tabulation_areas
   }
 
   dimension: organization_state {
