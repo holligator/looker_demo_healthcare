@@ -76,6 +76,12 @@ view: +fct_claims {
     group_label: "IDs"
   }
 
+  dimension: condition_type {
+  }
+
+  dimension: procedure_code {
+  }
+
   measure: total_claims_value {
     type: sum
     sql: ${claim_total_value} ;;
