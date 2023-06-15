@@ -41,6 +41,9 @@ view: +fct_patient_conditions {
 
   dimension: patient_address {
     group_label: "Address"
+    sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_address
+    {% else %} 'PII field - access FORBIDDEN!!'
+    {% endif %};;
   }
 
   dimension: patient_age_at_death {
@@ -70,6 +73,9 @@ view: +fct_patient_conditions {
 
   dimension: patient_city {
     group_label: "Address"
+    sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_city
+    {% else %} 'PII field - access FORBIDDEN!!'
+    {% endif %};;
   }
 
   dimension: patient_country {
@@ -89,12 +95,14 @@ view: +fct_patient_conditions {
   }
 
   dimension: patient_first_name {
+    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_id {
   }
 
   dimension: patient_last_name {
+    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_name_in_use {
@@ -102,6 +110,9 @@ view: +fct_patient_conditions {
 
   dimension: patient_postal_code {
     group_label: "Address"
+    sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_postal_code
+    {% else %} 'PII field - access FORBIDDEN!!'
+    {% endif %};;
   }
 
   dimension: patient_state {

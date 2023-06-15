@@ -89,7 +89,6 @@ view: dim_patients {
   dimension: patient_address {
     type: string
     sql: ${TABLE}.patient_address ;;
-    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension_group: patient_birth {
@@ -110,7 +109,6 @@ view: dim_patients {
   dimension: patient_city {
     type: string
     sql: ${TABLE}.patient_city ;;
-    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_country {
@@ -135,7 +133,6 @@ view: dim_patients {
   dimension: patient_first_name {
     type: string
     sql: ${TABLE}.patient_first_name ;;
-    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_gender {
@@ -151,7 +148,6 @@ view: dim_patients {
   dimension: patient_last_name {
     type: string
     sql: ${TABLE}.patient_last_name ;;
-    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_postal_code {
