@@ -28,4 +28,5 @@ explore: fct_hospital_events {
     relationship: many_to_one
     sql_on: ${fct_hospital_events.organization_id} = ${dt_hospital_readmissions.organization_id}  ;;
   }
+
 }

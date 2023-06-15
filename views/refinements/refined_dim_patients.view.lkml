@@ -21,6 +21,13 @@ view: +dim_patients {
     value_format_name: decimal_1
   }
 
+  dimension: age_range_tier {
+    type: tier
+    style: integer
+    tiers: [1, 13, 18, 65]
+    sql: ${age} ;;
+  }
+
   dimension: age_when_deceased {
   }
 
@@ -52,7 +59,7 @@ view: +dim_patients {
     ]
   }
 
-  dimension: first_visit_condition_type {
+  dimension: first_visit_condition_text {
   }
 
   dimension_group: last_encounter {
@@ -71,6 +78,10 @@ view: +dim_patients {
 
   dimension: patient_address {
     group_label: "Address Detail"
+    sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_address
+    {% else %} 'PII field - access FORBIDDEN!!'
+    {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension_group: patient_birth {
@@ -89,6 +100,10 @@ view: +dim_patients {
 
   dimension: patient_city {
     group_label: "Address Detail"
+    sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_city
+    {% else %} 'PII field - access FORBIDDEN!!'
+    {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_country {
@@ -110,16 +125,22 @@ view: +dim_patients {
   }
 
   dimension: patient_first_name {
+    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_gender {
   }
 
   dimension: patient_last_name {
+    required_access_grants: [ag_has_access_to_pii]
   }
 
   dimension: patient_postal_code {
     group_label: "Address Detail"
+    sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_postal_code
+    {% else %} 'PII field - access FORBIDDEN!!'
+    {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_state {

@@ -67,9 +67,9 @@ view: dim_patients {
     sql: ${TABLE}.first_encounter_date ;;
   }
 
-  dimension: first_visit_condition_type {
+  dimension: first_visit_condition_text {
     type: string
-    sql: ${TABLE}.first_visit_condition_type ;;
+    sql: ${TABLE}.first_visit_condition_text ;;
   }
 
   dimension_group: last_encounter {
