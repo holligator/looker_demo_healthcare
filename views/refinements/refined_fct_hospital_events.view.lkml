@@ -58,6 +58,8 @@ view: +fct_hospital_events {
     sql_start: ${encounter_started_date} ;;
     sql_end: ${encounter_ended_date} ;;
     intervals: [
+      minute,
+      hour,
       day,
       week,
       month
