@@ -50,7 +50,7 @@ view: +dim_patients {
     ]
   }
 
-  dimension: first_visit_condition_type {
+  dimension: first_visit_condition_text {
   }
 
   dimension_group: last_encounter {
