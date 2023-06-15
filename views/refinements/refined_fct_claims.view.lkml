@@ -77,9 +77,19 @@ view: +fct_claims {
   }
 
   dimension: condition_type {
+    link: {
+      label: "Definition of Condition"
+      url: "http://www.google.com/search?q={{ value }}"
+      icon_url: "http://google.com/favicon.ico"
+    }
   }
 
   dimension: procedure_code {
+    link: {
+      label: "Definition of Procedure Code"
+      url: "http://www.google.com/search?q={{ value }}"
+      icon_url: "http://google.com/favicon.ico"
+    }
   }
 
   measure: total_claims_value {
