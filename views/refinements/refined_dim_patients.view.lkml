@@ -19,6 +19,25 @@ view: +dim_patients {
     sql: ${age} ;;
   }
 
+  dimension: age_range_tier {
+    type: tier
+    style: interval
+    tiers: [1, 13, 18, 65]
+    sql: ${age} ;;
+  }
+
+  # dimension: age_range_tier {
+  #   type: string
+  #   sql: CASE
+  #     WHEN ${age} < 1 THEN 'Infants'
+  #     WHEN ${age} BETWEEN 1 AND 12 THEN 'Childen'
+  #     WHEN ${age} BETWEEN 13 AND 17 THEN 'Adolescents'
+  #     WHEN ${age} BETWEEN 18 AND 64 THEN 'Adult'
+  #     ELSE 'Senior'
+  #   END ;;
+  #   description: "Age Range Tier"
+  # }
+
   dimension: age_when_deceased {
   }
 
