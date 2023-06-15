@@ -10,6 +10,7 @@ view: +dim_patients {
   }
 
   measure: total_age {
+    hidden: yes
     type: sum
     sql: ${age} ;;
   }
@@ -17,6 +18,7 @@ view: +dim_patients {
   measure: average_age {
     type: average
     sql: ${age} ;;
+    value_format_name: decimal_1
   }
 
   dimension: age_range_tier {

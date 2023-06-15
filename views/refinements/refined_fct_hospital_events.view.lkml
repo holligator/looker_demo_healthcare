@@ -52,6 +52,20 @@ view: +fct_hospital_events {
     ]
   }
 
+  dimension_group: of_hospital_encounter {
+    group_label: "Duration of Encounter"
+    type: duration
+    sql_start: ${encounter_started_date} ;;
+    sql_end: ${encounter_ended_date} ;;
+    intervals: [
+      minute,
+      hour,
+      day,
+      week,
+      month
+    ]
+  }
+
   dimension: organization_id {
     group_label: "IDs"
   }
@@ -130,7 +144,7 @@ view: +fct_hospital_events {
   measure: mortality_rate {
     description: "The percentage of patients who die as a result of a specific condition or treatment."
     type: number
-    label: "Mortality Rate"
+    label: "Mortality Rate (%)"
     sql: ${count_of_patients_who_died_14_days_after_procedure} / NULLIF(${count_of_patients_who_had_procedures}, 0) ;;
     value_format_name: percent_1
   }
@@ -138,7 +152,7 @@ view: +fct_hospital_events {
   measure: success_rate {
     description: "The percentage of success for each procedure."
     type: number
-    label: "Success Rate"
+    label: "Success Rate (%)"
     sql: 1 - (${count_of_patients_who_died_14_days_after_procedure} / NULLIF(${count_of_procedures}, 0)) ;;
     value_format_name: percent_1
   }
@@ -146,5 +160,12 @@ view: +fct_hospital_events {
   measure: count {
     hidden: yes
     label: "Count of Hospital Events"
+  }
+
+  measure: average_length_of_stay {
+    label: "Average Length of Stay (Days)"
+    type: average
+    sql: ${encounter_duration_minutes} / 1440 ;;
+    value_format_name: decimal_2
   }
 }
