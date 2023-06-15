@@ -44,6 +44,7 @@ view: +fct_patient_conditions {
     sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_address
     {% else %} 'PII field - access FORBIDDEN!!'
     {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_age_at_death {
@@ -76,6 +77,7 @@ view: +fct_patient_conditions {
     sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_city
     {% else %} 'PII field - access FORBIDDEN!!'
     {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_country {
@@ -113,6 +115,7 @@ view: +fct_patient_conditions {
     sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_postal_code
     {% else %} 'PII field - access FORBIDDEN!!'
     {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_state {

@@ -72,7 +72,7 @@ view: +dim_patients {
     sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_address
     {% else %} 'PII field - access FORBIDDEN!!'
     {% endif %};;
-    html: <p style="color: red; font-size:100%; text-align:center">{{ rendered_value }}</p> ;;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension_group: patient_birth {
@@ -94,6 +94,7 @@ view: +dim_patients {
     sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_city
     {% else %} 'PII field - access FORBIDDEN!!'
     {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_country {
@@ -130,6 +131,7 @@ view: +dim_patients {
     sql: {% if _user_attributes['ag_has_access_to_pii'] == 'true' %} ${TABLE}.patient_postal_code
     {% else %} 'PII field - access FORBIDDEN!!'
     {% endif %};;
+    html: <p style="color: red; font-size:200%; text-align:left">{{ rendered_value }}</p> ;;
   }
 
   dimension: patient_state {
